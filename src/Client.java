@@ -1,156 +1,180 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Dimension;
+
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
  
-public class Client 
+public class Client extends JFrame
 {
 	
 	static JButton button1, button2, button3, button4, button5, button6;
-    public static void addComponentsToPane(Container pane) {
-        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+	Container pane;
+    //public static void addComponentsToPane(this.pane) {
+    //pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));}
+    
+   
+     Client() 
+     {
+  	    super("Unit_Converter");
+  	    pane = getContentPane();
+  	    pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+     }
+     
+     void setPrefferedMaxAndMinSize(Component c, int width, int height)
+     {
+         Dimension rozmiar = new Dimension(width, height);
+         c.setPreferredSize(rozmiar);
+         c.setMaximumSize(rozmiar);
+         c.setMinimumSize(rozmiar);
+     }
+    
+ 	private void addAButtons() 
+	{
+		button1 = new JButton ("Currency");
+		//button1.setToolTipText("xxx");
+	    setPrefferedMaxAndMinSize(button1, 300, 60);
+	    //button1.setBackground(Color.white);
+	    button1.setBackground(new Color(152, 251, 152));    
+	    button1.setForeground(new Color(0, 100, 0));
+	    button1.setEnabled(true);
+	    button1.addActionListener(new ActionListener()
+	    {
+	    	@Override
+	    	public void actionPerformed(ActionEvent e) 
+	    	{
+	    		
+	    		       		
+	    	}
+	    	});
+	    pane.add(button1); 
+	    
+	    pane.add(Box.createVerticalGlue()); //pionowy kleik
+	    //pane.add(Box.createHorizontalGlue());//poziomy kleik
+	    
+	    button2 = new JButton ("Length");
+		//button1.setToolTipText("xxx");
+	    setPrefferedMaxAndMinSize(button2, 300, 60);
+	  //button1.setBackground(Color.white);
+	    button2.setBackground(new Color(152, 251, 152));    
+	    button2.setForeground(new Color(0, 100, 0));
+	    button2.setEnabled(true);
+	    button2.addActionListener(new ActionListener()
+	    {
+	    	@Override
+	    	public void actionPerformed(ActionEvent e) 
+	    	{
+	    		
+	    		       		
+	    	}
+	    	});
+	    pane.add(button2); 
+	    
+	    pane.add(Box.createVerticalGlue());
+	    
+	    button3 = new JButton ("Weight");
+		//button1.setToolTipText("xxx");
+	    setPrefferedMaxAndMinSize(button3, 300, 60);
+	  //button1.setBackground(Color.white);
+	    button3.setBackground(new Color(152, 251, 152));    
+	    button3.setForeground(new Color(0, 100, 0));
+	    button3.setEnabled(true);
+	    button3.addActionListener(new ActionListener()
+	    {
+	    	@Override
+	    	public void actionPerformed(ActionEvent e) 
+	    	{
+	    		
+	    		       		
+	    	}
+	    	});
+	    pane.add(button3);
+	    
+	    pane.add(Box.createVerticalGlue());
+	    
+	    button4 = new JButton ("Volume");
+		//button1.setToolTipText("xxx");
+	    setPrefferedMaxAndMinSize(button4, 300, 60);
+	  //button1.setBackground(Color.white);
+	    button4.setBackground(new Color(152, 251, 152));    
+	    button4.setForeground(new Color(0, 100, 0));
+	    button4.setEnabled(true);
+	    button4.addActionListener(new ActionListener()
+	    {
+	    	@Override
+	    	public void actionPerformed(ActionEvent e) 
+	    	{
+	    		
+	    		       		
+	    	}
+	    	});
+	    pane.add(button4); 
+	    
+	    pane.add(Box.createVerticalGlue());
+	    
+	    button5 = new JButton ("Area");
+		//button1.setToolTipText("xxx");
+	    setPrefferedMaxAndMinSize(button5, 300, 60);
+	  //button1.setBackground(Color.white);
+	    button5.setBackground(new Color(152, 251, 152));    
+	    button5.setForeground(new Color(0, 100, 0));
+	    button5.setEnabled(true);
+	    button5.addActionListener(new ActionListener()
+	    {
+	    	@Override
+	    	public void actionPerformed(ActionEvent e) 
+	    	{
+	    		
+	    		       		
+	    	}
+	    	});
+	    pane.add(button5); 
+	    
+	    pane.add(Box.createVerticalGlue());
+	    
+	    button6 = new JButton ("Temperature");
+		//button1.setToolTipText("xxx");
+	    setPrefferedMaxAndMinSize(button6, 300, 60);
+	  //button1.setBackground(Color.white);
+	    button6.setBackground(new Color(152, 251, 152));    
+	    button6.setForeground(new Color(0, 100, 0));
+	    button6.setEnabled(true);
+	    button6.addActionListener(new ActionListener()
+	    {
+	    	@Override
+	    	public void actionPerformed(ActionEvent e) 
+	    	{
+	    		
+	    		       		
+	    	}
+	    	});
+	    pane.add(button6); 	    
+	    }
+    
  
-        /*addAButton("Button 1", pane);
-        addAButton("Button 2", pane);
-        addAButton("Button 3", pane);
-        addAButton("Long-Named Button 4", pane);
-        addAButton("5", pane);*/
-        
-        button1 = new JButton ("Currency");
-    	//button1.setToolTipText("xxx");
-        //setPrefferedMaxAndMinSize(button1, 60, 33);
-        button1.setBackground(Color.white);
-        button1.setForeground(new Color(218,165,32));
-        button1.setEnabled(true);
-        button1.addActionListener(new ActionListener()
-        {
-        	@Override
-        	public void actionPerformed(ActionEvent e) 
-        	{
-        		
-        		       		
-        	}
-        	});
-        pane.add(button1); 
-        
-        
-        button2 = new JButton ("Length");
-    	//button1.setToolTipText("xxx");
-        //setPrefferedMaxAndMinSize(button2, 60, 33);
-        button2.setBackground(Color.white);
-        button2.setForeground(new Color(218,165,32));
-        button2.setEnabled(true);
-        button2.addActionListener(new ActionListener()
-        {
-        	@Override
-        	public void actionPerformed(ActionEvent e) 
-        	{
-        		
-        		       		
-        	}
-        	});
-        pane.add(button2); 
-        
-        button3 = new JButton ("Weight");
-    	//button1.setToolTipText("xxx");
-        //setPrefferedMaxAndMinSize(button3, 60, 33);
-        button3.setBackground(Color.white);
-        button3.setForeground(new Color(218,165,32));
-        button3.setEnabled(true);
-        button3.addActionListener(new ActionListener()
-        {
-        	@Override
-        	public void actionPerformed(ActionEvent e) 
-        	{
-        		
-        		       		
-        	}
-        	});
-        pane.add(button3);
-        
-        
-        button4 = new JButton ("Volume");
-    	//button1.setToolTipText("xxx");
-        //setPrefferedMaxAndMinSize(button4, 60, 33);
-        button4.setBackground(Color.white);
-        button4.setForeground(new Color(218,165,32));
-        button4.setEnabled(true);
-        button4.addActionListener(new ActionListener()
-        {
-        	@Override
-        	public void actionPerformed(ActionEvent e) 
-        	{
-        		
-        		       		
-        	}
-        	});
-        pane.add(button4); 
-        
-        
-        button5 = new JButton ("Area");
-    	//button1.setToolTipText("xxx");
-        //setPrefferedMaxAndMinSize(button5, 60, 33);
-        button5.setBackground(Color.white);
-        button5.setForeground(new Color(218,165,32));
-        button5.setEnabled(true);
-        button5.addActionListener(new ActionListener()
-        {
-        	@Override
-        	public void actionPerformed(ActionEvent e) 
-        	{
-        		
-        		       		
-        	}
-        	});
-        pane.add(button5); 
-        
-        
-        
-        button6 = new JButton ("Temperature");
-    	//button1.setToolTipText("xxx");
-        //setPrefferedMaxAndMinSize(button6, 60, 33);
-        button6.setBackground(Color.white);
-        button6.setForeground(new Color(218,165,32));
-        button6.setEnabled(true);
-        button6.addActionListener(new ActionListener()
-        {
-        	@Override
-        	public void actionPerformed(ActionEvent e) 
-        	{
-        		
-        		       		
-        	}
-        	});
-        pane.add(button6); 
-    }
- 
-    private static void addAButton(String text, Container container) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        container.add(button);
-    }
- 
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    private static void createAndShowGUI() {
+    private void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("BoxLayoutDemo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
+        //JFrame frame = new JFrame("BoxLayoutDemo");
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         //Set up the content pane.
-        addComponentsToPane(frame.getContentPane());
- 
+        //addComponentsToPane(frame.getContentPane()); 
         //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        //frame.pack();
+        //frame.setVisible(true);
+        
+        setLocation(600,20);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pack();
+		setVisible(true);
+		setSize(300,400); 
+		setResizable(false);
     }
  
     public static void main(String[] args) {
@@ -158,7 +182,11 @@ public class Client
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+                //createAndShowGUI();
+            	Client C = new Client();
+            	C.createAndShowGUI();
+            	C.addAButtons(); 
+            	
             }
         });
     }
