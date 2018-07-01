@@ -27,7 +27,7 @@ public class Client extends JFrame
    
      Client() 
      {
-  	    super("Unit_Converter");
+  	    super("Konwerter jednostek");
   	    pane = getContentPane();
   	    pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
      }
@@ -42,9 +42,9 @@ public class Client extends JFrame
     
  	private void addAButtons() 
 	{
- 		DetailedWindow D = new DetailedWindow();
+ 		//DetailedWindow D = new DetailedWindow();
  		
- 		button1 = new JButton ("Currency");
+ 		button1 = new JButton ("Waluta");
 		//button1.setToolTipText("xxx");
 	    setPrefferedMaxAndMinSize(button1, 300, 60);
 	    //button1.setBackground(Color.white);
@@ -67,7 +67,7 @@ public class Client extends JFrame
 	    pane.add(Box.createVerticalGlue()); //pionowy kleik
 	    //pane.add(Box.createHorizontalGlue());//poziomy kleik
 	    
-	    button2 = new JButton ("Length");
+	    button2 = new JButton ("Dlugosc");
 		//button1.setToolTipText("xxx");
 	    setPrefferedMaxAndMinSize(button2, 300, 60);
 	  //button1.setBackground(Color.white);
@@ -79,15 +79,15 @@ public class Client extends JFrame
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) 
 	    	{
-	    		String units[] = new String[7];
+	    		String units[] = new String[5];
 	    		units[0]="mm";
-	    		units[1]="cm";
-	    		units[2]="m";
-	    		units[3]="km";
-	    		units[4]="feet";
-	    		units[5]="inches";
-	    		units[6]="miles";
-	    		D.createView(units);
+	    		units[1]="dm";
+	    		units[2]="cm";
+	    		units[3]="m";
+	    		units[4]="km";
+	    		DetailedWindow D = new DetailedWindow(units, 2);
+	    		//D.s=units;
+	    		//D.createView(units);
 	    		D.setVisible(true);
 	    		       		
 	    	}
@@ -96,7 +96,7 @@ public class Client extends JFrame
 	    
 	    pane.add(Box.createVerticalGlue());
 	    
-	    button3 = new JButton ("Weight");
+	    button3 = new JButton ("Masa");
 		//button1.setToolTipText("xxx");
 	    setPrefferedMaxAndMinSize(button3, 300, 60);
 	  //button1.setBackground(Color.white);
@@ -108,17 +108,15 @@ public class Client extends JFrame
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) 
 	    	{
-	    		String units[] = new String[9];
+	    		String units[] = new String[5];
 	    		units[0]="mg";
 	    		units[1]="g";
-	    		units[2]="dg";
+	    		units[2]="dkg";
 	    		units[3]="kg";
-	    		units[4]="tonne";
-	    		units[5]="grains";
-	    		units[6]="ounces";
-	    		units[7]="pounds";
-	    		units[8]="stones";
-	    		D.createView(units);
+	    		units[4]="tona";    		
+	    		DetailedWindow D = new DetailedWindow(units,3);
+	    		//D.s=units;
+	    		//D.createView(units);
 	    		D.setVisible(true);
 	    		       		
 	    	}
@@ -127,7 +125,7 @@ public class Client extends JFrame
 	    
 	    pane.add(Box.createVerticalGlue());
 	    
-	    button4 = new JButton ("Volume");
+	    button4 = new JButton ("Objetosc");
 		//button1.setToolTipText("xxx");
 	    setPrefferedMaxAndMinSize(button4, 300, 60);
 	  //button1.setBackground(Color.white);
@@ -139,15 +137,13 @@ public class Client extends JFrame
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) 
 	    	{
-	    		String units[] = new String[7];
+	    		String units[] = new String[3];
 	    		units[0]="cm^3";
 	    		units[1]="m^3";
-	    		units[2]="feet^3";
-	    		units[3]="gallons";
-	    		units[4]="inches^3";
-	    		units[5]="litres";
-	    		units[6]="yards^3";
-	    		D.createView(units);
+	    		units[2]="litr";
+	    		DetailedWindow D = new DetailedWindow(units,4);
+	    		//D.s=units;
+	    		//D.createView(units);
 	    		D.setVisible(true);      		
 	    	}
 	    	});
@@ -155,7 +151,7 @@ public class Client extends JFrame
 	    
 	    pane.add(Box.createVerticalGlue());
 	    
-	    button5 = new JButton ("Area");
+	    button5 = new JButton ("Powierzchnia");
 		//button1.setToolTipText("xxx");
 	    setPrefferedMaxAndMinSize(button5, 300, 60);
 	  //button1.setBackground(Color.white);
@@ -167,28 +163,27 @@ public class Client extends JFrame
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) 
 	    	{
-	    		String units[] = new String[9];
+	    		String units[] = new String[5];
 	    		units[0]="cm^2";
 	    		units[1]="m^2";
-	    		units[2]="acres";
-	    		units[3]="feet^2";
-	    		units[4]="hectares";
-	    		units[5]="inches^2";
-	    		units[6]="miles^2";
-	    		units[7]="yards^2";
-	    		units[8]="ares";
-	    		D.createView(units);
-	    		D.setVisible(true);       		
+	    		units[2]="km^2";
+	    		units[3]="ar";
+	    		units[4]="hektar";
+	    		DetailedWindow D = new DetailedWindow(units,5);
+	    		//D.s=units;
+	    		//D.createView(units);
+	    		D.setVisible(true); 
+	    		//34480616
 	    	}
 	    	});
 	    pane.add(button5); 
 	    
 	    pane.add(Box.createVerticalGlue());
 	    
-	    button6 = new JButton ("Temperature");
+	    button6 = new JButton ("Temperatura");
 		//button1.setToolTipText("xxx");
 	    setPrefferedMaxAndMinSize(button6, 300, 60);
-	  //button1.setBackground(Color.white);
+	    //button1.setBackground(Color.white);
 	    button6.setBackground(new Color(152, 251, 152));    
 	    button6.setForeground(new Color(0, 100, 0));
 	    button6.setEnabled(true);
@@ -197,11 +192,12 @@ public class Client extends JFrame
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) 
 	    	{
-	    		String units[] = new String[3];
+	    		String units[] = new String[2];
 	    		units[0]="Kelvin";
-	    		units[1]="Celsjusz";
-	    		units[2]="Fahrenheit";
-	    		D.createView(units);
+	    		units[1]="Celsjusz";	    		
+	    		DetailedWindow D = new DetailedWindow(units,6);
+	    		//D.s=units;
+	    		//D.createView(units);
 	    		D.setVisible(true);     		
 	    	}
 	    	});
@@ -209,16 +205,8 @@ public class Client extends JFrame
 	    }
     
  
-    private void createAndShowGUI() {
-        //Create and set up the window.
-        //JFrame frame = new JFrame("BoxLayoutDemo");
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        //Set up the content pane.
-        //addComponentsToPane(frame.getContentPane()); 
-        //Display the window.
-        //frame.pack();
-        //frame.setVisible(true);
-        
+    private void createAndShowGUI() 
+    {       
         setLocation(600,20);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pack();
