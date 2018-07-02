@@ -8,6 +8,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -25,6 +26,18 @@ public class DetailedWindow extends JFrame
 	private JButton button1;
 	String s[];
 	int actionMaker;
+	
+	JComboBox ComboFrom;
+	JComboBox ComboTo;
+	JTextField value;
+	JTextField score;
+	
+	//Currency c;
+	Length l;
+	Weight w;
+	Area a;
+	Volume v;
+	Temperature t;
      
      DetailedWindow(String z[], int aM) 
      {
@@ -47,7 +60,8 @@ public class DetailedWindow extends JFrame
      private void createAndShowGUI() 
      {
     	 setLocation(600,20);
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
          paneD.add(getRow1());
          paneD.add(getRow2());
          paneD.add(getRow3());
@@ -129,31 +143,13 @@ public class DetailedWindow extends JFrame
     	 JLabel LabFrom=new JLabel("Od: ");
      	 setPrefferedMaxAndMinSize(LabFrom, 70, 70);
          paneD.add(LabFrom);               
-         JComboBox ComboFrom=new JComboBox();
+         ComboFrom=new JComboBox();
          for(int i=0;i<s.length;i++)
          {
         	 ComboFrom.addItem(s[i]); 
          }       
          ComboFrom.setPreferredSize(new Dimension(120, 23));
          ComboFrom.setBackground(Color.white);
-         ComboFrom.addActionListener(new ActionListener()
- 	    {
- 	    	@Override
- 	    	public void actionPerformed(ActionEvent e) 
- 	    	{
- 	    		switch(actionMaker)
- 	    		{
- 	    			case1: score.setValue();
- 	    			//case2: score.setValue(Length(units, )) inaczej:
- 	    		//score.setValue(L.countScore(prametry pozyskane z obecnych w tej klasie pol modyfikowanych przez usera)
- 	    		// gdzie L to obiekt klasy Length
- 	    			case3:
- 	    			case4:
- 	    			case5:
- 	    			case6:
- 	    		}
- 	    	}
- 	    	});
          paneD.add(ComboFrom);
      }
      
@@ -162,7 +158,7 @@ public class DetailedWindow extends JFrame
     	 JLabel labelV = new JLabel("Wartosc:");
          setPrefferedMaxAndMinSize(labelV, 120, 90);
          paneD.add(labelV);         
-         JTextField value = new JTextField();
+         value = new JTextField();
          value.setEditable(true);
          setPrefferedMaxAndMinSize(value, 300, 23);
          paneD.add(value);
@@ -174,7 +170,7 @@ public class DetailedWindow extends JFrame
     	 JLabel LabTo=new JLabel("Na: ");
      	 setPrefferedMaxAndMinSize(LabTo, 70, 70);
          paneD.add(LabTo);               
-         JComboBox ComboTo=new JComboBox();
+         ComboTo=new JComboBox();
          for(int i=0;i<s.length;i++)
          {
         	 ComboTo.addItem(s[i]); 
@@ -187,10 +183,42 @@ public class DetailedWindow extends JFrame
      
      private void buildRow8(JComponent paneD) 
      {
+         	 
+    	score=new JTextField();
+    	JButton button = new JButton ("Oblicz");
+ 	    setPrefferedMaxAndMinSize(button, 100, 60);
+ 	    button.setEnabled(true);
+ 	    button.addActionListener(new ActionListener()
+ 	    {
+ 	    	@Override
+ 	    	public void actionPerformed(ActionEvent e) 
+ 	    	{
+ 	    		//c = new Currency(s, (String)ComboFrom.getSelectedItem(), (String)ComboTo.getSelectedItem(), Double.parseDouble(value.getText()) );	      	 
+ 	    		l = new Length(s, (String)ComboFrom.getSelectedItem(), (String)ComboTo.getSelectedItem(), Double.parseDouble(value.getText()) );
+ 	            w = new Weight(s, (String)ComboFrom.getSelectedItem(), (String)ComboTo.getSelectedItem(), Double.parseDouble(value.getText()) );
+ 	            a = new Area(s, (String)ComboFrom.getSelectedItem(), (String)ComboTo.getSelectedItem(), Double.parseDouble(value.getText()) );
+ 	            v = new Volume(s, (String)ComboFrom.getSelectedItem(), (String)ComboTo.getSelectedItem(), Double.parseDouble(value.getText()) );
+ 	            t = new Temperature(s, (String)ComboFrom.getSelectedItem(), (String)ComboTo.getSelectedItem(), Double.parseDouble(value.getText()) );
+	                 
+ 	    		switch(actionMaker)
+ 	    		{
+ 	    			case(2): score.setText(Double.toString(w.countScore(s)));break;
+ 	    			//case(2): score.setText(l.countScore(s));break;
+ 	    			case(3): score.setText(Double.toString(w.countScore(s)));break;
+ 	    			case(4): score.setText(Double.toString(w.countScore(s)));break;
+ 	    			case(5): score.setText(Double.toString(w.countScore(s)));break;
+ 	    			case(6): score.setText(Double.toString(w.countScore(s)));break;
+ 	    		}	
+ 	    	}
+ 	    	});
+ 	     paneD.add(button); 
+    	 
+ 	     paneD.add(Box.createHorizontalStrut(30));
+    	 
     	 JLabel labelS = new JLabel("Wynik:");
          setPrefferedMaxAndMinSize(labelS, 120, 90);
          paneD.add(labelS);         
-         JTextField score = new JTextField();
+         score = new JTextField();
          score.setEditable(false);// user can not edit the score
          setPrefferedMaxAndMinSize(score, 300, 23);
          paneD.add(score);

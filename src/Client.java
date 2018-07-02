@@ -50,7 +50,7 @@ public class Client extends JFrame
 	    //button1.setBackground(Color.white);
 	    button1.setBackground(new Color(152, 251, 152));    
 	    button1.setForeground(new Color(0, 100, 0));
-	    button1.setEnabled(true);
+	    button1.setEnabled(false);//NA RAZIE USTAWIAM FALSE, BO NIE JEST OPRACOWANE
 	    button1.addActionListener(new ActionListener()
 	    {
 	    	@Override
@@ -170,10 +170,7 @@ public class Client extends JFrame
 	    		units[3]="ar";
 	    		units[4]="hektar";
 	    		DetailedWindow D = new DetailedWindow(units,5);
-	    		//D.s=units;
-	    		//D.createView(units);
-	    		D.setVisible(true); 
-	    		//34480616
+	    		D.setVisible(true);    		
 	    	}
 	    	});
 	    pane.add(button5); 
